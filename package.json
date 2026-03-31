@@ -1,0 +1,26 @@
+{
+  "name": "ahalo-cli",
+  "version": "0.0.5",
+  "type": "module",
+  "description": "a blessing for your code. no bugs, no crashes, just vibes.",
+  "bin": {
+    "ahalo": "bin/ahalo.js"
+  },
+  "scripts": {
+    "start": "bun run src/cli.ts",
+    "test": "bun test",
+    "check": "bun test"
+  },
+  "files": ["src", "bin", "native", "assets"],
+  "keywords": ["codex", "overlay", "macos", "notification", "cli"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ducnmm/ahalo"
+  },
+  "homepage": "https://github.com/ducnmm/ahalo",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.9.2"
+  }
+}

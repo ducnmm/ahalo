@@ -13,7 +13,12 @@ npm install -g ahalo-cli
 ahalo install
 ```
 
-use `codex` like normal — ahalo appears automatically.
+use `codex` or `claude` like normal — ahalo appears automatically.
+
+## supported agents
+
+- [openai codex cli](https://github.com/openai/codex) — fully supported
+- [claude code](https://docs.anthropic.com/en/docs/claude-code) — fully supported
 
 ## commands
 
@@ -35,3 +40,4 @@ then: `ahalo theme <name>`
 ## notes
 
 - macos only.
+- works with any agent that has a hook/plugin system — PRs welcome!

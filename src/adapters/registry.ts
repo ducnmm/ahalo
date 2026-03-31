@@ -9,11 +9,12 @@
 
 import type { AgentAdapter } from "./adapter";
 import { CodexAdapter } from "./codex/codexAdapter";
+import { ClaudeCodeAdapter } from "./claude-code/claudeCodeAdapter";
 
 /** All registered agent adapters */
 export const ALL_ADAPTERS: AgentAdapter[] = [
   new CodexAdapter(),
-  // new ClaudeCodeAdapter(),  ← add future adapters here
+  new ClaudeCodeAdapter(),
 ];
 
 /** Returns only adapters whose CLI binary is found in PATH */

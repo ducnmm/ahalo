@@ -4,6 +4,7 @@ import path from "node:path";
 import os from "node:os";
 import { readSignalFile, cleanupSignalFile } from "../src/signal";
 import { CodexAdapter } from "../src/adapters/codex/codexAdapter";
+import { ClaudeCodeAdapter } from "../src/adapters/claude-code/claudeCodeAdapter";
 import { ALL_ADAPTERS, getAvailableAdapters, getAdapterById } from "../src/adapters/registry";
 
 describe("signal file", () => {
@@ -62,9 +63,10 @@ describe("config", () => {
 });
 
 describe("adapter registry", () => {
-  test("ALL_ADAPTERS contains at least codex", () => {
-    expect(ALL_ADAPTERS.length).toBeGreaterThanOrEqual(1);
+  test("ALL_ADAPTERS contains codex and claude-code", () => {
+    expect(ALL_ADAPTERS.length).toBeGreaterThanOrEqual(2);
     expect(ALL_ADAPTERS[0].id).toBe("codex");
+    expect(ALL_ADAPTERS[1].id).toBe("claude-code");
   });
 
   test("getAdapterById returns correct adapter", () => {
@@ -72,6 +74,13 @@ describe("adapter registry", () => {
     expect(codex).toBeDefined();
     expect(codex!.id).toBe("codex");
     expect(codex!.displayName).toBe("Codex CLI");
+  });
+
+  test("getAdapterById returns claude-code adapter", () => {
+    const claude = getAdapterById("claude-code");
+    expect(claude).toBeDefined();
+    expect(claude!.id).toBe("claude-code");
+    expect(claude!.displayName).toBe("Claude Code");
   });
 
   test("getAdapterById returns undefined for unknown id", () => {
@@ -99,5 +108,23 @@ describe("codex adapter", () => {
   test("isAvailable returns boolean", () => {
     const adapter = new CodexAdapter();
     expect(typeof adapter.isAvailable()).toBe("boolean");
+  });
+});
+
+describe("claude-code adapter", () => {
+  test("ClaudeCodeAdapter has correct id and displayName", () => {
+    const adapter = new ClaudeCodeAdapter();
+    expect(adapter.id).toBe("claude-code");
+    expect(adapter.displayName).toBe("Claude Code");
+  });
+
+  test("isAvailable returns boolean", () => {
+    const adapter = new ClaudeCodeAdapter();
+    expect(typeof adapter.isAvailable()).toBe("boolean");
+  });
+
+  test("isConfigured returns boolean", () => {
+    const adapter = new ClaudeCodeAdapter();
+    expect(typeof adapter.isConfigured()).toBe("boolean");
   });
 });

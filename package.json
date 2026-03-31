@@ -1,6 +1,6 @@
 {
   "name": "ahalo-cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "description": "a blessing for your code. no bugs, no crashes, just vibes.",
   "bin": {
@@ -12,7 +12,7 @@
     "check": "bun test"
   },
   "files": ["src", "bin", "native", "assets"],
-  "keywords": ["codex", "overlay", "macos", "notification", "cli"],
+  "keywords": ["codex", "claude-code", "overlay", "macos", "notification", "cli"],
   "license": "MIT",
   "repository": {
     "type": "git",

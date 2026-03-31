@@ -15,11 +15,6 @@ ahalo install
 
 use `codex` or `claude` like normal — ahalo appears automatically.
 
-## supported agents
-
-- [openai codex cli](https://github.com/openai/codex) — fully supported
-- [claude code](https://docs.anthropic.com/en/docs/claude-code) — fully supported
-
 ## commands
 
 - `ahalo install` — activate the blessing
